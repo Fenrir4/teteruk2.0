@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI TRANSFORMATION | BURGUNDY</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* --- НОВА ПАЛІТРА --- */
+            --bg-color: #590d14; /* Глибокий бордовий фон */
+            --text-color: #ffffff; /* Білий текст */
+            --accent-light: #ffffff; /* Акценти (рамки, кнопки) */
+            --glass-bg: rgba(255, 255, 255, 0.05); /* Ефект скла для карток */
+            --border-color: rgba(255, 255, 255, 0.2);
+            
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Manrope', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(89, 13, 20, 0.9); /* Бордовий напівпрозорий */
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            color: var(--accent-light);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: var(--accent-light);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            padding: 10px 25px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: var(--accent-light);
+            color: var(--bg-color); /* Інверсія при наведенні */
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 80px 0 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            min-height: 60vh;
+        }
+
+        .hero-text {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-family: var(--font-head);
+            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            line-height: 1.1;
+            color: var(--accent-light);
+            margin-bottom: 30px;
+        }
+
+        h1 i { font-weight: 400; font-style: italic; opacity: 0.8; }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8); /* Трохи прозорий білий */
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            line-height: 1.7;
+        }
+
+        .btn-chic {
+            display: inline-block;
+            background-color: var(--accent-light);
+            color: var(--bg-color); /* Текст кнопки - бордовий */
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.3s;
+            border: 1px solid var(--accent-light);
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .btn-chic:hover {
+            background-color: transparent;
+            color: var(--accent-light);
+        }
+
+        /* --- MARQUEE (Біла смуга) --- */
+        .marquee {
+            width: 100%;
+            background: var(--accent-light); /* Біла смуга */
+            color: var(--bg-color); /* Бордовий текст */
+            padding: 15px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: scroll 25s linear infinite;
+            font-family: var(--font-head);
+            font-style: italic;
+            font-size: 1.2rem;
+            padding-left: 100%;
+        }
+        @keyframes scroll { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+
+        /* --- PROGRAM --- */
+        .program-section { padding: 100px 0; }
+        
+        .section-title {
+            font-family: var(--font-head);
+            font-size: 2.8rem;
+            text-align: center;
+            color: var(--accent-light);
+            margin-bottom: 60px;
+        }
+
+        .accordion { width: 100%; max-width: 850px; margin: 0 auto; }
+        .accordion-item { border-bottom: 1px solid var(--border-color); }
+        
+        .accordion-header {
+            width: 100%; background: transparent; border: none;
+            padding: 25px 0; text-align: left; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            font-family: var(--font-head); font-size: 1.3rem; 
+            color: rgba(255,255,255, 0.9);
+            transition: 0.3s;
+        }
+        .accordion-header:hover { padding-left: 10px; color: var(--accent-light); }
+        
+        .lesson-tag {
+            font-family: var(--font-body); font-size: 0.85rem; color: rgba(255,255,255, 0.5);
+            margin-right: 20px; display: inline-block; min-width: 30px; letter-spacing: 1px;
+        }
+
+        .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .body-inner { padding: 0 0 30px 50px; }
+        .body-inner ul { list-style: none; }
+        .body-inner li { margin-bottom: 10px; color: rgba(255,255,255, 0.7); font-size: 1rem; position: relative; padding-left: 20px; }
+        .body-inner li::before { content: "✦"; color: var(--accent-light); position: absolute; left: 0; font-size: 0.8rem; top: 5px; }
+
+        /* --- SPEAKERS --- */
+        .speakers-grid {
+            display: flex; flex-wrap: wrap; gap: 40px;
+            justify-content: center; margin-top: 80px;
+        }
+        .speaker-card { flex: 1; min-width: 300px; max-width: 450px; text-align: center; }
+        
+        .speaker-img-box {
+            width: 100%; aspect-ratio: 1 / 1.25;
+            border-radius: 150px 150px 0 0; overflow: hidden; margin-bottom: 20px;
+            position: relative; 
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+        }
+        .speaker-photo { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+
+        /* --- PRICING --- */
+        .pricing-section { 
+            background-color: rgba(0,0,0,0.2); /* Ще темніший блок */
+            padding: 100px 0; margin-top: 80px; 
+            border-top: 1px solid var(--border-color);
+        }
+        .pricing-grid { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
+        
+        .price-card {
+            flex: 1; min-width: 320px; max-width: 500px;
+            background: var(--glass-bg); /* Ефект скла */
+            backdrop-filter: blur(5px);
+            padding: 50px;
+            border-radius: 30px; text-align: center; 
+            border: 1px solid var(--border-color);
+        }
+        
+        .price-card.premium {
+            background: rgba(255,255,255, 0.1); /* Трохи світліше для преміум */
+            border: 1px solid var(--accent-light);
+            box-shadow: 0 0 40px rgba(0,0,0,0.2); 
+            position: relative;
+        }
+
+        .price-val { font-family: var(--font-head); font-size: 3rem; color: var(--accent-light); margin: 20px 0; }
+        .price-list { text-align: left; margin: 30px 0; padding: 0 10px; }
+        .price-list li { list-style: none; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+
+        .btn-outline {
+            display: inline-block;
+            color: var(--accent-light);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            border: 1px solid var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+        .btn-outline:hover { background: var(--accent-light); color: var(--bg-color); }
+
+        footer { 
+            padding: 50px 0; text-align: center; font-size: 0.9rem; 
+            color: rgba(255,255,255, 0.5); border-top: 1px solid var(--border-color);
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .hero { padding: 60px 0; }
+            h1 { margin-bottom: 20px; }
+            .btn-chic { width: 100%; max-width: 300px; }
+            .accordion-header { font-size: 1.1rem; padding: 20px 0; }
+            .container { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">AI Assistant.</div>
+            <a href="#pricing" class="nav-btn">Доєднатись</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>AI-Трансформація: <br><i>Естетика</i> та <br>Система.</h1>
+                <p>Від контенту до системного маркетингу. Інтегруй штучний інтелект у свої процеси, щоб створювати візуал та тексти на рівні світових брендів.</p>
+                <a href="#pricing" class="btn-chic">Розпочати навчання</a>
+            </div>
+        </section>
+    </div>
+
+    <div class="marquee">
+        <div class="marquee-content">
+            CONTENT AESTHETICS ✦ MARKETING STRATEGY ✦ SYSTEM ✦ ARTIFICIAL INTELLIGENCE ✦ DESIGN ✦
+            CONTENT AESTHETICS ✦ MARKETING STRATEGY ✦ SYSTEM ✦ ARTIFICIAL INTELLIGENCE ✦ DESIGN ✦
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="program-section">
+            <h2 class="section-title">Програма Курсу</h2>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div><span class="lesson-tag">01</span> SMM як система + роль AI</div>
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-inner">
+                            <ul>
+                                <li>Як виглядає сучасний маркетинг без хаосу</li>
+                                <li>Де саме AI підсилює SMM, а де — шкодить</li>
+                                <li>Як мислити процесами, а не контентом</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div><span class="lesson-tag">02</span> AI-екосистема для маркетингу</div>
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-inner">
+                            <ul>
+                                <li>ChatGPT, Claude, Perplexity, Copilot — чітко по задачах</li>
+                                <li>Яка звʼязка потрібна SMM і бізнесу</li>
+                                <li>Як не платити за зайве</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div><span class="lesson-tag">03</span> Промптинг для маркетолога</div>
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-inner">
+                            <ul>
+                                <li>Як ставити задачі AI, щоб він думав стратегією</li>
+                                <li>Універсальні промпт-шаблони під SMM і бізнес</li>
+                                <li>Типові помилки навіть досвідчених спеціалістів</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div><span class="lesson-tag">04</span> AI-аналіз цільової аудиторії</div>
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-inner">
+                            <ul>
+                                <li>Глибокі болі, тригери, сценарії купівлі</li>
+                                <li>Не “портрет”, а рішення клієнта</li>
+                                <li>Як адаптувати під різні ніші</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div><span class="lesson-tag">05</span> УТП і позиціонування через AI</div>
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-inner">
+                            <ul>
+                                <li>Як AI допомагає знайти реальну відмінність</li>
+                                <li>Конкурентний аналіз без ручної роботи</li>
+                                <li>Формування сильного меседжу</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div><span class="lesson-tag">06</span> Reels як система залучення</div>
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-inner">
+                            <ul>
+                                <li>AI-генерація ідей, сценаріїв, хуків</li>
+                                <li>Логіка контент-воронок</li>
+                                <li>Як не зливати охоплення</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div><span class="lesson-tag">07</span> Тексти і прогріви з AI</div>
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-inner">
+                            <ul>
+                                <li>Продаючі структури без “копірайтерської води”</li>
+                                <li>Адаптація під різні ЦА</li>
+                                <li>Швидке масштабування контенту</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div><span class="lesson-tag">08</span> Автоматизація Instagram через AI</div>
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-inner">
+                            <ul>
+                                <li>Автоматичні відповіді і сценарії</li>
+                                <li>Мінімум ручної роботи</li>
+                                <li>Стабільна комунікація</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div><span class="lesson-tag">09</span> Власний GPT-асистент</div>
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-inner">
+                            <ul>
+                                <li>Створення AI під конкретні задачі</li>
+                                <li>Контент, аналіз, відповіді, ідеї</li>
+                                <li>Як працювати швидше і точніше</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div><span class="lesson-tag">10</span> AI-масштаб і майбутнє SMM</div>
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-inner">
+                            <ul>
+                                <li>AI-аватари</li>
+                                <li>Вихід на іноземні ринки</li>
+                                <li>Як залишатись актуальним спеціалістом</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-img-box">
+                        <img src="./yulia.jpg.JPG" alt="Юлія Генсіровська" class="speaker-photo">
+                    </div>
+                    <h3 style="font-family: var(--font-head); font-size:1.8rem; color:var(--accent-light);">Юлія Генсіровська</h3>
+                    <p style="text-transform:uppercase; font-size:0.8rem; letter-spacing:1px; color:rgba(255,255,255,0.6);">Digital Strategy</p>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-img-box">
+                        <img src="./volodymyr.jpg.PNG" alt="Володимир Тетерук" class="speaker-photo">
+                    </div>
+                    <h3 style="font-family: var(--font-head); font-size:1.8rem; color:var(--accent-light);">Володимир Тетерук</h3>
+                    <p style="text-transform:uppercase; font-size:0.8rem; letter-spacing:1px; color:rgba(255,255,255,0.6);">AI Specialist</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Тарифи</h2>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3 style="font-family: var(--font-head); font-size:2rem; color: white;">Basic</h3>
+                    <div class="price-val">5 500 <span style="font-size:1rem; color:rgba(255,255,255,0.5);">UAH</span></div>
+                    <ul class="price-list">
+                        <li>10 уроків у записі</li>
+                        <li>Доступ на 3 місяці</li>
+                        <li>Базові матеріали</li>
+                    </ul>
+                    <a href="https://secure.wayforpay.com/payment/sce1e3c1798ac" class="btn-outline">Придбати</a>
+                </div>
+
+                <div class="price-card premium">
+                    <div style="position:absolute; top:0; left:50%; transform:translate(-50%, -50%); background:var(--accent-light); color:var(--bg-color); padding:8px 20px; border-radius:20px; font-size:0.8rem; font-weight:bold;">BEST CHOICE</div>
+                    <h3 style="font-family: var(--font-head); font-size:2rem; color: white;">Premium</h3>
+                    <div class="price-val">7 600 <span style="font-size:1rem; color:rgba(255,255,255,0.5);">UAH</span></div>
+                    <ul class="price-list">
+                        <li>Всі уроки + Бонуси</li>
+                        <li>Доступ на 6 місяців</li>
+                        <li>Чат з експертами</li>
+                        <li>Сертифікат</li>
+                    </ul>
+                    <a href="https://secure.wayforpay.com/payment/sc28e0ea65534" class="btn-chic" style="margin-top:20px;">Придбати Premium</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Night Secret Production. Всі права захищено.</p>
+        </div>
+    </footer>
+
+    <script>
+        const headers = document.querySelectorAll('.accordion-header');
+        headers.forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    if (i !== item) {
+                        i.classList.remove('active');
+                        i.querySelector('.accordion-body').style.maxHeight = null;
+                    }
+                });
+                item.classList.toggle('active');
+                const body = header.nextElementSibling;
+                if (body.style.maxHeight) {
+                    body.style.maxHeight = null;
+                } else {
+                    body.style.maxHeight = body.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
