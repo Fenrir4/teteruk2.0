@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI TRANSFORMATION | BURGUNDY</title>
+    <title>AI for SMM & Marketing</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* --- НОВА ПАЛІТРА --- */
-            --bg-color: #590d14; /* Глибокий бордовий фон */
-            --text-color: #ffffff; /* Білий текст */
-            --accent-light: #ffffff; /* Акценти (рамки, кнопки) */
-            --glass-bg: rgba(255, 255, 255, 0.05); /* Ефект скла для карток */
-            --border-color: rgba(255, 255, 255, 0.2);
+            /* --- ПАЛІТРА CREATORKA/BURGUNDY --- */
+            --bg-color: #4a0a10; /* Ще глибший та шляхетніший винний колір */
+            --text-color: #ffffff;
+            --accent-light: #fdfbf9;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.15);
             
-            --font-head: 'Playfair Display', serif;
+            --font-head: 'Cormorant Garamond', serif;
             --font-body: 'Manrope', sans-serif;
         }
 
@@ -31,116 +31,120 @@
             color: var(--text-color);
             font-family: var(--font-body);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
+
+        ::selection { background: #fff; color: var(--bg-color); }
 
         .container {
             width: 100%;
-            max-width: 1300px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 30px;
         }
 
-        /* --- HEADER --- */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(89, 13, 20, 0.9); /* Бордовий напівпрозорий */
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: var(--font-head);
-            font-size: 1.5rem;
-            color: var(--accent-light);
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-btn {
-            text-decoration: none;
-            color: var(--accent-light);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            border: 1px solid var(--border-color);
-            padding: 10px 25px;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-        
-        .nav-btn:hover {
-            background: var(--accent-light);
-            color: var(--bg-color); /* Інверсія при наведенні */
-        }
-
-        /* --- HERO --- */
+        /* --- HERO (NO HEADER) --- */
         .hero {
-            padding: 80px 0 100px;
+            padding: 100px 0 80px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             justify-content: center;
-            min-height: 60vh;
+            min-height: 80vh;
         }
 
-        .hero-text {
-            width: 100%;
-            max-width: 800px;
-        }
+        .hero-text { width: 100%; max-width: 900px; }
 
         h1 {
             font-family: var(--font-head);
-            font-size: clamp(2.8rem, 8vw, 5.5rem);
-            line-height: 1.1;
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            line-height: 1.05;
             color: var(--accent-light);
             margin-bottom: 30px;
+            font-weight: 500;
         }
 
-        h1 i { font-weight: 400; font-style: italic; opacity: 0.8; }
+        h1 i { font-weight: 400; font-style: italic; opacity: 0.9; }
 
         .hero p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.8); /* Трохи прозорий білий */
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.8);
             max-width: 600px;
-            margin: 0 auto 40px auto;
+            margin: 0 auto 50px auto;
             line-height: 1.7;
+            font-weight: 300;
         }
 
+        /* БЛОК: Вступний вебінар */
+        .intro-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            text-align: left;
+            backdrop-filter: blur(10px);
+        }
+
+        .intro-box h3 {
+            font-family: var(--font-head);
+            font-size: 2.2rem;
+            color: var(--accent-light);
+            margin-bottom: 10px;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .intro-box p.speakers {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .intro-list { list-style: none; }
+        .intro-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.8);
+        }
+        .intro-list li strong { color: #fff; font-weight: 500; }
+        .intro-list .star { color: var(--accent-light); font-size: 1.2rem; }
+
+        /* Кнопка */
         .btn-chic {
             display: inline-block;
             background-color: var(--accent-light);
-            color: var(--bg-color); /* Текст кнопки - бордовий */
-            padding: 18px 50px;
+            color: var(--bg-color);
+            padding: 20px 60px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1rem;
-            transition: 0.3s;
+            font-size: 1.1rem;
+            transition: 0.4s;
             border: 1px solid var(--accent-light);
-            font-weight: 600;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            font-weight: 500;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-chic:hover {
             background-color: transparent;
             color: var(--accent-light);
+            box-shadow: none;
         }
 
-        /* --- MARQUEE (Біла смуга) --- */
+        /* --- MARQUEE --- */
         .marquee {
             width: 100%;
-            background: var(--accent-light); /* Біла смуга */
-            color: var(--bg-color); /* Бордовий текст */
+            background: var(--accent-light);
+            color: var(--bg-color);
             padding: 15px 0;
             overflow: hidden;
             white-space: nowrap;
@@ -150,9 +154,10 @@
             animation: scroll 25s linear infinite;
             font-family: var(--font-head);
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             padding-left: 100%;
         }
+        .marquee-content span { margin: 0 40px; font-style: normal; font-size: 1rem; opacity: 0.5; }
         @keyframes scroll { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
 
         /* --- PROGRAM --- */
@@ -160,35 +165,47 @@
         
         .section-title {
             font-family: var(--font-head);
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             text-align: center;
             color: var(--accent-light);
             margin-bottom: 60px;
+            font-weight: 400;
         }
+        .section-title i { font-style: italic; }
 
         .accordion { width: 100%; max-width: 850px; margin: 0 auto; }
         .accordion-item { border-bottom: 1px solid var(--border-color); }
         
         .accordion-header {
             width: 100%; background: transparent; border: none;
-            padding: 25px 0; text-align: left; cursor: pointer;
+            padding: 30px 0; text-align: left; cursor: pointer;
             display: flex; justify-content: space-between; align-items: center;
-            font-family: var(--font-head); font-size: 1.3rem; 
-            color: rgba(255,255,255, 0.9);
+            font-family: var(--font-head); font-size: 1.6rem; 
+            color: rgba(255,255,255, 0.95);
             transition: 0.3s;
+            font-weight: 500;
         }
         .accordion-header:hover { padding-left: 10px; color: var(--accent-light); }
         
         .lesson-tag {
-            font-family: var(--font-body); font-size: 0.85rem; color: rgba(255,255,255, 0.5);
-            margin-right: 20px; display: inline-block; min-width: 30px; letter-spacing: 1px;
+            font-family: var(--font-body); font-size: 0.8rem; color: rgba(255,255,255, 0.5);
+            margin-right: 20px; display: inline-block; min-width: 30px; letter-spacing: 2px;
+            text-transform: uppercase;
+            transform: translateY(-3px);
         }
 
-        .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-        .body-inner { padding: 0 0 30px 50px; }
-        .body-inner ul { list-style: none; }
-        .body-inner li { margin-bottom: 10px; color: rgba(255,255,255, 0.7); font-size: 1rem; position: relative; padding-left: 20px; }
-        .body-inner li::before { content: "✦"; color: var(--accent-light); position: absolute; left: 0; font-size: 0.8rem; top: 5px; }
+        .icon-plus { font-size: 1.8rem; font-weight: 300; transition: 0.4s; }
+        .accordion-item.active .icon-plus { transform: rotate(45deg); }
+
+        .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+        .body-inner { padding: 0 0 40px 65px; }
+        
+        .lesson-block { margin-bottom: 25px; }
+        .lesson-title { font-weight: 500; color: var(--accent-light); margin-bottom: 10px; font-size: 1.1rem; }
+        .lesson-text { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.6; font-weight: 300; }
+        .lesson-list { list-style: none; padding-left: 10px; margin-top: 5px; }
+        .lesson-list li { margin-bottom: 8px; position: relative; padding-left: 20px; color: rgba(255,255,255,0.7); font-weight: 300; }
+        .lesson-list li::before { content: "✦"; color: var(--accent-light); position: absolute; left: 0; font-size: 0.8rem; top: 4px; opacity: 0.5; }
 
         /* --- SPEAKERS --- */
         .speakers-grid {
@@ -199,258 +216,259 @@
         
         .speaker-img-box {
             width: 100%; aspect-ratio: 1 / 1.25;
-            border-radius: 150px 150px 0 0; overflow: hidden; margin-bottom: 20px;
+            border-radius: 200px 200px 0 0; overflow: hidden; margin-bottom: 25px;
             position: relative; 
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.02);
             border: 1px solid var(--border-color);
         }
-        .speaker-photo { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+        .speaker-photo { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: 0.5s; filter: sepia(10%) contrast(105%); }
+        .speaker-card:hover .speaker-photo { transform: scale(1.03); opacity: 1; }
+
+        .speaker-bio {
+            text-align: left;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 20px;
+            padding: 0 10px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
 
         /* --- PRICING --- */
         .pricing-section { 
-            background-color: rgba(0,0,0,0.2); /* Ще темніший блок */
-            padding: 100px 0; margin-top: 80px; 
+            padding: 100px 0; margin-top: 50px; 
             border-top: 1px solid var(--border-color);
         }
         .pricing-grid { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
         
         .price-card {
-            flex: 1; min-width: 320px; max-width: 500px;
-            background: var(--glass-bg); /* Ефект скла */
-            backdrop-filter: blur(5px);
+            flex: 1; min-width: 320px; max-width: 450px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
             padding: 50px;
-            border-radius: 30px; text-align: center; 
+            border-radius: 20px; text-align: center; 
             border: 1px solid var(--border-color);
+            display: flex; flex-direction: column;
         }
         
         .price-card.premium {
-            background: rgba(255,255,255, 0.1); /* Трохи світліше для преміум */
-            border: 1px solid var(--accent-light);
-            box-shadow: 0 0 40px rgba(0,0,0,0.2); 
+            background: rgba(255,255,255, 0.05);
+            border: 1px solid rgba(255,255,255,0.4);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
             position: relative;
         }
 
-        .price-val { font-family: var(--font-head); font-size: 3rem; color: var(--accent-light); margin: 20px 0; }
-        .price-list { text-align: left; margin: 30px 0; padding: 0 10px; }
-        .price-list li { list-style: none; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+        .price-val { font-family: var(--font-head); font-size: 3.5rem; color: var(--accent-light); margin: 15px 0 5px; line-height: 1; }
+        .price-desc { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+
+        .price-list { text-align: left; margin: 20px 0 40px; padding: 0 10px; flex-grow: 1; }
+        .price-list li { list-style: none; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); font-size: 0.95rem; font-weight: 300; display: flex; gap: 10px;}
+        .price-list li span { color: var(--accent-light); opacity: 0.6; }
 
         .btn-outline {
             display: inline-block;
             color: var(--accent-light);
-            padding: 15px 40px;
+            padding: 18px 40px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            border: 1px solid var(--accent-light);
+            font-size: 0.95rem;
+            transition: 0.4s;
+            border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 500;
+            margin-top: auto;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 20px;
         }
-        .btn-outline:hover { background: var(--accent-light); color: var(--bg-color); }
+        .btn-outline:hover { background: var(--accent-light); color: var(--bg-color); border-color: var(--accent-light); }
+
+        /* --- FAQ --- */
+        .faq-section { padding: 60px 0 100px; }
+        .faq-header { font-size: 1.25rem !important; }
+        .faq-body { padding-left: 0 !important; }
 
         footer { 
-            padding: 50px 0; text-align: center; font-size: 0.9rem; 
-            color: rgba(255,255,255, 0.5); border-top: 1px solid var(--border-color);
+            padding: 50px 0; text-align: center; font-size: 0.85rem; 
+            color: rgba(255,255,255, 0.4); border-top: 1px solid var(--border-color);
+            letter-spacing: 1px; text-transform: uppercase;
         }
 
         /* --- MOBILE --- */
         @media (max-width: 768px) {
-            .hero { padding: 60px 0; }
-            h1 { margin-bottom: 20px; }
-            .btn-chic { width: 100%; max-width: 300px; }
-            .accordion-header { font-size: 1.1rem; padding: 20px 0; }
+            .hero { padding: 80px 0; }
+            h1 { margin-bottom: 30px; }
+            .intro-box { padding: 30px 20px; margin-bottom: 40px; }
+            .intro-box h3 { font-size: 1.8rem; }
+            .btn-chic { width: 100%; max-width: 300px; padding: 18px 0; text-align: center; }
+            .accordion-header { font-size: 1.4rem; padding: 20px 0; flex-direction: column; align-items: flex-start; gap: 10px; }
+            .accordion-header .icon-plus { align-self: flex-end; margin-top: -35px; }
             .container { padding: 0 20px; }
+            .body-inner { padding: 0 0 20px 10px; }
+            .price-card { padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container header-inner">
-            <div class="logo">AI Assistant.</div>
-            <a href="#pricing" class="nav-btn">Доєднатись</a>
-        </div>
-    </header>
-
     <div class="container">
         <section class="hero">
             <div class="hero-text">
-                <h1>AI-Трансформація: <br><i>Естетика</i> та <br>Система.</h1>
-                <p>Від контенту до системного маркетингу. Інтегруй штучний інтелект у свої процеси, щоб створювати візуал та тексти на рівні світових брендів.</p>
-                <a href="#pricing" class="btn-chic">Розпочати навчання</a>
+                <h1>AI for SMM & <br><i>Marketing</i></h1>
+                <p>Пройди шлях від новачка до AI-експерта. Автоматизуй рутину, створюй контент швидше та стань спеціалістом, якого шукають топові компанії у 2026 році.</p>
+                
+                <div class="intro-box">
+                    <h3>🚀 Стартова подія:<br>Вступний вебінар експертів</h3>
+                    <p class="speakers">Спікери: Юлія та Володимир</p>
+                    <ul class="intro-list">
+                        <li><span class="star">✦</span> <span><strong>Введення в програму:</strong> Як пройти шлях від новачка до AI-експерта за курс.</span></li>
+                        <li><span class="star">✦</span> <span><strong>Екосистема ШІ 2026:</strong> Які тренди в маркетингу диктують нейромережі прямо зараз.</span></li>
+                        <li><span class="star">✦</span> <span><strong>Q&A сесія:</strong> Розбір найпоширеніших запитань та стратегія навчання для максимального результату.</span></li>
+                    </ul>
+                </div>
+
+                <a href="#pricing" class="btn-chic">Переглянути тарифи</a>
             </div>
         </section>
     </div>
 
     <div class="marquee">
         <div class="marquee-content">
-            CONTENT AESTHETICS ✦ MARKETING STRATEGY ✦ SYSTEM ✦ ARTIFICIAL INTELLIGENCE ✦ DESIGN ✦
-            CONTENT AESTHETICS ✦ MARKETING STRATEGY ✦ SYSTEM ✦ ARTIFICIAL INTELLIGENCE ✦ DESIGN ✦
+            SMM <span>✦</span> MARKETING STRATEGY <span>✦</span> SYSTEM <span>✦</span> ARTIFICIAL INTELLIGENCE <span>✦</span> AESTHETICS <span>✦</span>
+            SMM <span>✦</span> MARKETING STRATEGY <span>✦</span> SYSTEM <span>✦</span> ARTIFICIAL INTELLIGENCE <span>✦</span> AESTHETICS <span>✦</span>
         </div>
     </div>
 
     <div class="container">
         <section class="program-section">
-            <h2 class="section-title">Програма Курсу</h2>
+            <h2 class="section-title"><i>Програма</i> Курсу</h2>
 
             <div class="accordion">
+                
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div><span class="lesson-tag">01</span> SMM як система + роль AI</div>
-                        <span>+</span>
+                        <div><span class="lesson-tag">MOD 1</span> Фундамент та логіка роботи з ШІ</div>
+                        <span class="icon-plus">+</span>
                     </button>
                     <div class="accordion-body">
                         <div class="body-inner">
-                            <ul>
-                                <li>Як виглядає сучасний маркетинг без хаосу</li>
-                                <li>Де саме AI підсилює SMM, а де — шкодить</li>
-                                <li>Як мислити процесами, а не контентом</li>
-                            </ul>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 1. Стратегія особистого бренду та бізнесу в 2026</div>
+                                <ul class="lesson-list">
+                                    <li>Позиціонування експерта</li>
+                                    <li>Визначення ніші</li>
+                                    <li>Архітектура особистого бренду</li>
+                                    <li>Контент як система продажу</li>
+                                    <li>Як будувати довіру</li>
+                                    <li style="color:var(--accent-light);"><i>Практика: створення власної SMM-стратегії</i></li>
+                                </ul>
+                            </div>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 2. Мистецтво промтингу</div>
+                                <div class="lesson-text">Технологія написання професійних запитів та алгоритми взаємодії з ШІ для отримання ідеального результату з першої спроби.</div>
+                            </div>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 3. Огляд інструментів для бізнесу</div>
+                                <div class="lesson-text">ChatGPT vs Claude vs Perplexity vs Copilot. Обираємо найкращий інструмент під конкретні SMM-задачі.</div>
+                            </div>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 4. База промптів для маркетолога</div>
+                                <div class="lesson-text">Отримання готового набору з 100+ перевірених промптів для щоденної роботи.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div><span class="lesson-tag">02</span> AI-екосистема для маркетингу</div>
-                        <span>+</span>
+                        <div><span class="lesson-tag">MOD 2</span> Стратегія та глибока аналітика</div>
+                        <span class="icon-plus">+</span>
                     </button>
                     <div class="accordion-body">
                         <div class="body-inner">
-                            <ul>
-                                <li>ChatGPT, Claude, Perplexity, Copilot — чітко по задачах</li>
-                                <li>Яка звʼязка потрібна SMM і бізнесу</li>
-                                <li>Як не платити за зайве</li>
-                            </ul>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 4(b). Як СММ спеціалісту працювати з:</div>
+                                <div class="lesson-text">Глибокою сегментацією. Біль, тригери, страхи. JTBD.</div>
+                            </div>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 5. Як сформувати сильне УТП</div>
+                                <div class="lesson-text">Види контенту: прогрів, експертність, продаж. Контент-матриця. Сценарії прогрівів. Сторіс-структури.<br><i style="color:var(--accent-light);">Практика: створення воронки під свій продукт.</i></div>
+                            </div>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 6. Аналіз цільової аудиторії</div>
+                                <div class="lesson-text">Використання ШІ для глибокої сегментації та вивчення реальних болів і тригерів вашої ЦА.</div>
+                            </div>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 7. Контент-план та лід-магніт у таблицях</div>
+                                <div class="lesson-text">Створення автоматизованої бази, яка генерує ідеї та воронки на місяці вперед.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div><span class="lesson-tag">03</span> Промптинг для маркетолога</div>
-                        <span>+</span>
+                        <div><span class="lesson-tag">MOD 3</span> Текстовий контент та копірайтинг</div>
+                        <span class="icon-plus">+</span>
                     </button>
                     <div class="accordion-body">
                         <div class="body-inner">
-                            <ul>
-                                <li>Як ставити задачі AI, щоб він думав стратегією</li>
-                                <li>Універсальні промпт-шаблони під SMM і бізнес</li>
-                                <li>Типові помилки навіть досвідчених спеціалістів</li>
-                            </ul>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 8. Як адаптувати текст під живий стиль</div>
+                                <div class="lesson-text">Як зробити контент “не AI, а з душею”. Структура відео, які продають.</div>
+                            </div>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 9. AI у написанні текстів</div>
+                                <div class="lesson-text">Базові принципи створення якісного копірайтингу, що чіпляє та не виглядає як "роботизований".</div>
+                            </div>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 10. Автоматизоване переписування постів</div>
+                                <div class="lesson-text">Як за хвилини адаптувати один і той самий контент під різні платформи (Instagram, Telegram, LinkedIn).</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div><span class="lesson-tag">04</span> AI-аналіз цільової аудиторії</div>
-                        <span>+</span>
+                        <div><span class="lesson-tag">MOD 4</span> Visual & Video Production (Креатив)</div>
+                        <span class="icon-plus">+</span>
                     </button>
                     <div class="accordion-body">
                         <div class="body-inner">
-                            <ul>
-                                <li>Глибокі болі, тригери, сценарії купівлі</li>
-                                <li>Не “портрет”, а рішення клієнта</li>
-                                <li>Як адаптувати під різні ніші</li>
-                            </ul>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 11. Як створити систему</div>
+                                <div class="lesson-text">Модель 3-3-3. Баланс прогрів/експертність/продаж.</div>
+                            </div>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 12. Адаптація текстів</div>
+                                <div class="lesson-text">Як адаптувати текст під живий стиль. Як зробити контент “не AI, а з душею”. Структура відео, які продають.</div>
+                            </div>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 13. Огляд Midjourney</div>
+                                <div class="lesson-text">Глибоке занурення в генерацію унікального візуального контенту та рекламних креативів професійного рівня.</div>
+                            </div>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 14. AI-Аватари та клонування голосу</div>
+                                <div class="lesson-text">Створення цифрових персонажів (Heygen) та синтез голосу для Reels без залучення дикторів.</div>
+                            </div>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 15. Створення відео з ШІ (Kling & Runway)</div>
+                                <div class="lesson-text">Практичний воркшоп зі збірки реалістичних роликів та анімацій, що привертають увагу.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div><span class="lesson-tag">05</span> УТП і позиціонування через AI</div>
-                        <span>+</span>
+                        <div><span class="lesson-tag">MOD 5</span> Автоматизація та масштабування</div>
+                        <span class="icon-plus">+</span>
                     </button>
                     <div class="accordion-body">
                         <div class="body-inner">
-                            <ul>
-                                <li>Як AI допомагає знайти реальну відмінність</li>
-                                <li>Конкурентний аналіз без ручної роботи</li>
-                                <li>Формування сильного меседжу</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div><span class="lesson-tag">06</span> Reels як система залучення</div>
-                        <span>+</span>
-                    </button>
-                    <div class="accordion-body">
-                        <div class="body-inner">
-                            <ul>
-                                <li>AI-генерація ідей, сценаріїв, хуків</li>
-                                <li>Логіка контент-воронок</li>
-                                <li>Як не зливати охоплення</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div><span class="lesson-tag">07</span> Тексти і прогріви з AI</div>
-                        <span>+</span>
-                    </button>
-                    <div class="accordion-body">
-                        <div class="body-inner">
-                            <ul>
-                                <li>Продаючі структури без “копірайтерської води”</li>
-                                <li>Адаптація під різні ЦА</li>
-                                <li>Швидке масштабування контенту</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div><span class="lesson-tag">08</span> Автоматизація Instagram через AI</div>
-                        <span>+</span>
-                    </button>
-                    <div class="accordion-body">
-                        <div class="body-inner">
-                            <ul>
-                                <li>Автоматичні відповіді і сценарії</li>
-                                <li>Мінімум ручної роботи</li>
-                                <li>Стабільна комунікація</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div><span class="lesson-tag">09</span> Власний GPT-асистент</div>
-                        <span>+</span>
-                    </button>
-                    <div class="accordion-body">
-                        <div class="body-inner">
-                            <ul>
-                                <li>Створення AI під конкретні задачі</li>
-                                <li>Контент, аналіз, відповіді, ідеї</li>
-                                <li>Як працювати швидше і точніше</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div><span class="lesson-tag">10</span> AI-масштаб і майбутнє SMM</div>
-                        <span>+</span>
-                    </button>
-                    <div class="accordion-body">
-                        <div class="body-inner">
-                            <ul>
-                                <li>AI-аватари</li>
-                                <li>Вихід на іноземні ринки</li>
-                                <li>Як залишатись актуальним спеціалістом</li>
-                            </ul>
+                            <div class="lesson-block">
+                                <div class="lesson-title">Урок 16. Автоматизація Instagram (Direct & Comments)</div>
+                                <div class="lesson-text">Налаштування системи автоматичних привітань та відповідей на коментарі для підвищення охоплень та лояльності підписників.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -460,18 +478,26 @@
             <div class="speakers-grid">
                 <div class="speaker-card">
                     <div class="speaker-img-box">
-                        <img src="./yulia.jpg.JPG" alt="Юлія Генсіровська" class="speaker-photo">
+                        <img src="./IMG_3510.JPG" alt="Юлія" class="speaker-photo">
                     </div>
-                    <h3 style="font-family: var(--font-head); font-size:1.8rem; color:var(--accent-light);">Юлія Генсіровська</h3>
-                    <p style="text-transform:uppercase; font-size:0.8rem; letter-spacing:1px; color:rgba(255,255,255,0.6);">Digital Strategy</p>
+                    <h3 style="font-family: var(--font-head); font-size:2rem; color:var(--accent-light); font-weight: 500;">Юлія</h3>
+                    <p style="text-transform:uppercase; font-size:0.8rem; letter-spacing:2px; color:rgba(255,255,255,0.5);">Digital Strategy & SMM</p>
+                    <div class="speaker-bio">
+                        Експерт з побудови системних продажів через контент. Допомагає експертам та бізнесам знаходити своє позиціонування та будувати стратегії.
+                    </div>
                 </div>
 
                 <div class="speaker-card">
                     <div class="speaker-img-box">
-                        <img src="./volodymyr.jpg.PNG" alt="Володимир Тетерук" class="speaker-photo">
+                        <img src="./IMG_3511.jpg" alt="Володимир Тетерук" class="speaker-photo">
                     </div>
-                    <h3 style="font-family: var(--font-head); font-size:1.8rem; color:var(--accent-light);">Володимир Тетерук</h3>
-                    <p style="text-transform:uppercase; font-size:0.8rem; letter-spacing:1px; color:rgba(255,255,255,0.6);">AI Specialist</p>
+                    <h3 style="font-family: var(--font-head); font-size:2rem; color:var(--accent-light); font-weight: 500;">Володимир Тетерук</h3>
+                    <p style="text-transform:uppercase; font-size:0.8rem; letter-spacing:2px; color:rgba(255,255,255,0.5);">AI Specialist</p>
+                    <div class="speaker-bio">
+                        Власник Аі агенції та стратегічний партнер з впровадження штучного інтелекту в бізнес. Офіційний спікер та ментор освітньої програми від Google, Міністерства економіки України та EdEra. Серед клієнтів: Nova Poshta, Megogo, Lamel, Omixio, Askania.
+                        <br><br>
+                        <i style="color: var(--accent-light); opacity: 0.8;">"Штучний інтелект не замінить SMM-спеціаліста. Його замінить інший SMM-спеціаліст, який вже опанував ШІ."</i>
+                    </div>
                 </div>
             </div>
         </section>
@@ -479,30 +505,102 @@
 
     <section id="pricing" class="pricing-section">
         <div class="container">
-            <h2 class="section-title">Тарифи</h2>
+            <h2 class="section-title"><i>Варіанти</i> участі</h2>
             <div class="pricing-grid">
                 <div class="price-card">
-                    <h3 style="font-family: var(--font-head); font-size:2rem; color: white;">Basic</h3>
-                    <div class="price-val">5 500 <span style="font-size:1rem; color:rgba(255,255,255,0.5);">UAH</span></div>
+                    <h3 style="font-family: var(--font-head); font-size:2.5rem; color: white; font-weight: 500;">Basic</h3>
+                    <div class="price-val">3 750 <span style="font-size:1rem; color:rgba(255,255,255,0.5);">грн</span></div>
+                    <div class="price-desc">Ціна Early Birds (до 01.04)</div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 20px;">Оптимальний вибір для швидкого старту з ШІ.</p>
+                    
                     <ul class="price-list">
-                        <li>10 уроків у записі</li>
-                        <li>Доступ на 3 місяці</li>
-                        <li>Базові матеріали</li>
+                        <li><span>✦</span> Доступ до 5 навчальних тем (>13 уроків)</li>
+                        <li><span>✦</span> Вступний вебінар з експертами</li>
+                        <li><span>✦</span> 4 місяці доступу до платформи</li>
                     </ul>
-                    <a href="https://secure.wayforpay.com/payment/sce1e3c1798ac" class="btn-outline">Придбати</a>
+                    <a href="#" class="btn-outline">Придбати Basic</a>
                 </div>
 
                 <div class="price-card premium">
-                    <div style="position:absolute; top:0; left:50%; transform:translate(-50%, -50%); background:var(--accent-light); color:var(--bg-color); padding:8px 20px; border-radius:20px; font-size:0.8rem; font-weight:bold;">BEST CHOICE</div>
-                    <h3 style="font-family: var(--font-head); font-size:2rem; color: white;">Premium</h3>
-                    <div class="price-val">7 600 <span style="font-size:1rem; color:rgba(255,255,255,0.5);">UAH</span></div>
+                    <div style="position:absolute; top:0; left:50%; transform:translate(-50%, -50%); background:var(--accent-light); color:var(--bg-color); padding:8px 25px; border-radius:30px; font-size:0.8rem; font-weight:600; letter-spacing: 1px;">MAX RESULT</div>
+                    <h3 style="font-family: var(--font-head); font-size:2.5rem; color: white; font-weight: 500;">Premium</h3>
+                    <div class="price-val">5 000 <span style="font-size:1rem; color:rgba(255,255,255,0.5);">грн</span></div>
+                    <div class="price-desc">Ціна Early Birds (до 01.04)</div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 20px;">Професійне визнання та особиста підтримка.</p>
+                    
                     <ul class="price-list">
-                        <li>Всі уроки + Бонуси</li>
-                        <li>Доступ на 6 місяців</li>
-                        <li>Чат з експертами</li>
-                        <li>Сертифікат</li>
+                        <li><span>✦</span> Все, що входить у пакет BASIC</li>
+                        <li><span>✦</span> Доступ до матеріалів на 1 рік</li>
+                        <li><span>✦</span> Іменний сертифікат</li>
+                        <li><span>✦</span> Ексклюзивна QA-сесія зі спікерами</li>
+                        <li><span>✦</span> Участь у розіграші персональних консультацій</li>
                     </ul>
-                    <a href="https://secure.wayforpay.com/payment/sc28e0ea65534" class="btn-chic" style="margin-top:20px;">Придбати Premium</a>
+                    <a href="#" class="btn-chic" style="margin-top:auto; padding: 18px 40px;">Придбати Premium</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section container">
+        <h2 class="section-title" style="font-size: 2.5rem;"><i>Часті</i> запитання</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header faq-header">
+                    <div>1. Чи потрібен мені комп’ютер для проходження курсу?</div>
+                    <span class="icon-plus">+</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="body-inner faq-body">
+                        <p class="lesson-text">Для комфортного навчання та виконання практичних завдань наявність комп’ютера або ноутбука є обов’язковою. Робота з нейромережами потребує десктопного інтерфейсу для ефективності.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header faq-header">
+                    <div>2. Чи обов'язково знати англійську мову?</div>
+                    <span class="icon-plus">+</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="body-inner faq-body">
+                        <p class="lesson-text">Ні, знання англійської не є критичним. Сучасні нейромережі чудово розуміють українську мову. Ми також показуємо інструменти для миттєвого перекладу інтерфейсів. Ви зможете працювати, володіючи лише рідною мовою.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header faq-header">
+                    <div>3. Чи потрібно додатково купувати платні підписки на нейромережі?</div>
+                    <span class="icon-plus">+</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="body-inner faq-body">
+                        <p class="lesson-text">На старті ви зможете протестувати більшість сервісів абсолютно безкоштовно. Багато нейромереж мають пробні ліміти. Проте для професійного використання ми рекомендуємо придбати підписки для доступу до максимальної потужності.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header faq-header">
+                    <div>4. Чи підійде курс починаючим спеціалістам?</div>
+                    <span class="icon-plus">+</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="body-inner faq-body">
+                        <p class="lesson-text">Так, це ідеальна точка входу. Для новачків курс стане потужним стартом у професії. Ви почнете кар'єру з інструментами, до яких інші йтимуть роками.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header faq-header">
+                    <div>5. Чи буде курс корисним для досвідчених спеціалістів?</div>
+                    <span class="icon-plus">+</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="body-inner faq-body">
+                        <p class="lesson-text">Безумовно. Для професіоналів головна цінність курсу — автоматизація та делегування рутини. Ви дізнаєтеся, як передати штучному інтелекту 60-80% монотонних завдань, звільнивши час для стратегії.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -510,7 +608,7 @@
 
     <footer>
         <div class="container">
-            <p>© 2026 Night Secret Production. Всі права захищено.</p>
+            <p>© 2026 Всі права захищено. Штучний інтелект не замінить вас, це зроблять люди, які його використовують.</p>
         </div>
     </footer>
 
@@ -519,12 +617,16 @@
         headers.forEach(header => {
             header.addEventListener('click', () => {
                 const item = header.parentElement;
-                document.querySelectorAll('.accordion-item').forEach(i => {
+                const container = item.parentElement;
+                
+                // Закриваємо всі інші акордеони в цьому ж контейнері
+                container.querySelectorAll('.accordion-item').forEach(i => {
                     if (i !== item) {
                         i.classList.remove('active');
                         i.querySelector('.accordion-body').style.maxHeight = null;
                     }
                 });
+                
                 item.classList.toggle('active');
                 const body = header.nextElementSibling;
                 if (body.style.maxHeight) {
