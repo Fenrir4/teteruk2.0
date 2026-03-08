@@ -7,15 +7,16 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-color: #4a0a10; 
-            --text-color: #ffffff;
-            --accent-light: #fdfbf9;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --border-color: rgba(255, 255, 255, 0.15);
+            /* --- ПАЛІТРА --- */
+            --bg-color: #4a0a10; /* Глибокий бордовий фон */
+            --card-bg: #ffffff;  /* Білий фон для карток */
+            --text-light: #ffffff; /* Білий текст для заголовків на фоні */
+            --text-dark: #2b2b2b; /* Темний текст для карток */
+            --text-muted: #666666; /* Сірий текст для описів */
             
             --font-head: 'Cormorant Garamond', serif;
             --font-body: 'Manrope', sans-serif;
@@ -27,13 +28,13 @@
             width: 100%;
             overflow-x: hidden;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-light);
             font-family: var(--font-body);
             line-height: 1.6;
             scroll-behavior: smooth;
         }
 
-        ::selection { background: #fff; color: var(--bg-color); }
+        ::selection { background: var(--text-light); color: var(--bg-color); }
 
         .container {
             width: 100%;
@@ -59,7 +60,7 @@
             font-family: var(--font-head);
             font-size: clamp(3.5rem, 8vw, 6.5rem);
             line-height: 1.05;
-            color: var(--accent-light);
+            color: var(--text-light);
             margin-bottom: 30px;
             font-weight: 500;
         }
@@ -68,40 +69,41 @@
 
         .hero p {
             font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             max-width: 600px;
             margin: 0 auto 50px auto;
             line-height: 1.7;
             font-weight: 300;
         }
 
-        /* Вступний вебінар */
+        /* --- БЛОК ВСТУПНИЙ ВЕБІНАР (БІЛИЙ) --- */
         .intro-box {
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
+            background: var(--card-bg);
             border-radius: 20px;
             padding: 40px;
             max-width: 800px;
             margin: 0 auto 50px auto;
             text-align: left;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2); /* Об'ємна тінь */
+            color: var(--text-dark);
         }
 
         .intro-box h3 {
             font-family: var(--font-head);
             font-size: 2.2rem;
-            color: var(--accent-light);
-            margin-bottom: 10px;
-            font-weight: 500;
+            color: var(--bg-color); /* Бордовий заголовок */
+            margin-bottom: 5px;
+            font-weight: 600;
             line-height: 1.2;
         }
 
         .intro-box p.speakers {
-            color: rgba(255,255,255,0.5);
+            color: var(--text-muted);
             font-size: 0.85rem;
             margin-bottom: 25px;
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-weight: 600;
         }
 
         .intro-list { list-style: none; }
@@ -111,11 +113,12 @@
             align-items: flex-start;
             gap: 15px;
             font-size: 1.05rem;
-            color: rgba(255,255,255,0.8);
+            color: var(--text-dark);
         }
-        .intro-list li strong { color: #fff; font-weight: 500; }
-        .intro-list .star { color: var(--accent-light); font-size: 1.2rem; }
+        .intro-list li strong { color: var(--bg-color); font-weight: 600; }
+        .intro-list .star { color: var(--bg-color); font-size: 1.2rem; }
 
+        /* --- КНОПКИ (ОНОВЛЕНО ДЛЯ ЧИТАБЕЛЬНОСТІ) --- */
         .btn-chic {
             display: inline-block;
             background-color: var(--accent-light);
@@ -123,13 +126,13 @@
             padding: 20px 60px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.15rem; /* Трохи збільшили */
             transition: 0.4s;
-            border: 1px solid var(--accent-light);
-            font-weight: 500;
+            border: 2px solid var(--accent-light);
+            font-weight: 700; /* Зробили максимально жирним */
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .btn-chic:hover {
@@ -138,10 +141,35 @@
             box-shadow: none;
         }
 
+        .btn-outline {
+            display: inline-block;
+            color: var(--accent-light);
+            background: rgba(255, 255, 255, 0.08); /* Додали легкий напівпрозорий фон */
+            padding: 18px 0;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem; /* Збільшили розмір */
+            transition: 0.4s;
+            border: 2px solid rgba(255, 255, 255, 0.6); /* Зробили рамку товщою та світлішою */
+            font-weight: 700; /* Зробили текст жирним */
+            margin-top: auto;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .btn-outline:hover { 
+            background: var(--accent-light); 
+            color: var(--bg-color); 
+            border-color: var(--accent-light); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Додали тінь при наведенні */
+        }
+
         /* --- MARQUEE --- */
         .marquee {
             width: 100%;
-            background: var(--accent-light);
+            background: var(--text-light);
             color: var(--bg-color);
             padding: 15px 0;
             overflow: hidden;
@@ -158,168 +186,214 @@
         .marquee-content span { margin: 0 40px; font-style: normal; font-size: 1rem; opacity: 0.5; }
         @keyframes scroll { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
 
-        /* --- PROGRAM --- */
+        /* --- PROGRAM (БІЛІ АКОРДЕОНИ) --- */
         .program-section { padding: 100px 0; }
         
         .section-title {
             font-family: var(--font-head);
             font-size: 3.5rem;
             text-align: center;
-            color: var(--accent-light);
+            color: var(--text-light);
             margin-bottom: 60px;
             font-weight: 400;
         }
         .section-title i { font-style: italic; }
 
         .accordion { width: 100%; max-width: 850px; margin: 0 auto; }
-        .accordion-item { border-bottom: 1px solid var(--border-color); }
+        
+        .accordion-item { 
+            background: var(--card-bg);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
         
         .accordion-header {
             width: 100%; background: transparent; border: none;
-            padding: 30px 0; text-align: left; cursor: pointer;
+            padding: 25px 30px; text-align: left; cursor: pointer;
             display: flex; justify-content: space-between; align-items: center;
             font-family: var(--font-head); font-size: 1.6rem; 
-            color: rgba(255,255,255, 0.95);
+            color: var(--bg-color);
             transition: 0.3s;
-            font-weight: 500;
+            font-weight: 600;
         }
-        .accordion-header:hover { padding-left: 10px; color: var(--accent-light); }
         
         .lesson-tag {
-            font-family: var(--font-body); font-size: 0.8rem; color: rgba(255,255,255, 0.5);
-            margin-right: 20px; display: inline-block; min-width: 30px; letter-spacing: 2px;
-            text-transform: uppercase;
+            font-family: var(--font-body); font-size: 0.8rem; 
+            color: var(--bg-color); background: rgba(74, 10, 16, 0.08);
+            padding: 5px 12px; border-radius: 20px;
+            margin-right: 20px; display: inline-block; letter-spacing: 1px;
+            text-transform: uppercase; font-weight: 600;
             transform: translateY(-3px);
         }
 
-        .icon-plus { font-size: 1.8rem; font-weight: 300; transition: 0.4s; }
+        .icon-plus { font-size: 1.8rem; font-weight: 300; color: var(--bg-color); transition: 0.4s; }
         .accordion-item.active .icon-plus { transform: rotate(45deg); }
 
-        .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
-        .body-inner { padding: 0 0 40px 65px; }
+        .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; background: var(--card-bg); }
+        .body-inner { padding: 0 30px 40px 30px; color: var(--text-dark); }
         
-        .lesson-block { margin-bottom: 25px; }
-        .lesson-title { font-weight: 500; color: var(--accent-light); margin-bottom: 10px; font-size: 1.1rem; }
-        .lesson-text { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.6; font-weight: 300; }
+        .lesson-block { margin-top: 10px; margin-bottom: 25px; padding-top: 15px; border-top: 1px dashed #eee; }
+        .lesson-block:first-child { border-top: none; }
+        
+        .lesson-title { font-weight: 600; color: var(--bg-color); margin-bottom: 10px; font-size: 1.1rem; }
+        .lesson-text { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
         .lesson-list { list-style: none; padding-left: 10px; margin-top: 5px; }
-        .lesson-list li { margin-bottom: 8px; position: relative; padding-left: 20px; color: rgba(255,255,255,0.7); font-weight: 300; }
-        .lesson-list li::before { content: "✦"; color: var(--accent-light); position: absolute; left: 0; font-size: 0.8rem; top: 4px; opacity: 0.5; }
+        .lesson-list li { margin-bottom: 8px; position: relative; padding-left: 20px; color: var(--text-muted); }
+        .lesson-list li::before { content: "✦"; color: var(--bg-color); position: absolute; left: 0; font-size: 0.8rem; top: 4px; opacity: 0.5; }
 
-        /* --- SPEAKERS --- */
+        /* --- SPEAKERS (БІЛІ КАРТКИ) --- */
         .speakers-grid {
             display: flex; flex-wrap: wrap; gap: 40px;
             justify-content: center; margin-top: 80px;
         }
-        .speaker-card { flex: 1; min-width: 300px; max-width: 450px; text-align: center; }
+        .speaker-card { 
+            flex: 1; min-width: 300px; max-width: 450px; text-align: center; 
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            color: var(--text-dark);
+        }
         
         .speaker-img-box {
             width: 100%; aspect-ratio: 1 / 1.25;
             border-radius: 200px 200px 0 0; overflow: hidden; margin-bottom: 25px;
-            position: relative; 
-            background: rgba(255,255,255,0.02);
-            border: 1px solid var(--border-color);
+            background: #f5f5f5;
         }
-        .speaker-photo { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: 0.5s; filter: sepia(10%) contrast(105%); }
-        .speaker-card:hover .speaker-photo { transform: scale(1.03); opacity: 1; }
+        .speaker-photo { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; filter: sepia(10%) contrast(105%); }
+        .speaker-card:hover .speaker-photo { transform: scale(1.03); }
 
-        .speaker-bio {
-            text-align: left;
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.7);
-            margin-top: 20px;
-            padding: 0 10px;
-            line-height: 1.6;
-            font-weight: 300;
-        }
+        .speaker-card h3 { font-family: var(--font-head); font-size: 2.2rem; color: var(--bg-color); font-weight: 600; }
+        .speaker-role { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-muted); font-weight: 600; margin-top: 5px;}
         
+        .speaker-bio {
+            text-align: left; font-size: 0.95rem; color: var(--text-muted);
+            margin-top: 20px; padding: 0 10px; line-height: 1.6;
+        }
         .speaker-bio ul { margin-top: 10px; padding-left: 20px; }
         .speaker-bio ul li { margin-bottom: 8px; }
+        .speaker-bio i { color: var(--bg-color); font-weight: 500; }
 
-        /* --- PRICING & SCHEDULE --- */
-        .pricing-section { 
-            padding: 100px 0; margin-top: 50px; 
-            border-top: 1px solid var(--border-color);
-        }
+        /* --- PRICING & SCHEDULE (БІЛІ КАРТКИ) --- */
+        .pricing-section { padding: 100px 0; margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); }
         
         .pricing-grid { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; margin-bottom: 60px; }
         
         .price-card {
             flex: 1; min-width: 320px; max-width: 450px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
+            background: var(--card-bg);
             padding: 50px;
             border-radius: 20px; text-align: left; 
-            border: 1px solid var(--border-color);
             display: flex; flex-direction: column;
+            color: var(--text-dark);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border: 2px solid transparent;
         }
         
         .price-card.premium {
-            background: rgba(255,255,255, 0.05);
-            border: 1px solid rgba(255,255,255,0.4);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+            border-color: var(--bg-color); /* Бордова рамка для преміум */
             position: relative;
+            transform: translateY(-10px); /* Трохи піднята */
         }
 
-        .price-val { font-family: var(--font-head); font-size: 3.5rem; color: var(--accent-light); margin: 15px 0 5px; line-height: 1; }
-        .price-desc { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .price-card h3 { font-family: var(--font-head); font-size: 2.8rem; color: var(--bg-color); font-weight: 600; }
+        .price-val { font-family: var(--font-head); font-size: 3.5rem; color: var(--text-dark); margin: 15px 0 5px; line-height: 1; font-weight: 600;}
+        .price-desc { font-size: 0.85rem; color: var(--bg-color); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;}
         
-        .pkg-info { color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5; font-weight: 300; }
+        .pkg-info { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5; }
 
         .price-list { margin: 0 0 40px; padding: 0; flex-grow: 1; }
         .price-list li { 
-            list-style: none; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); 
-            color: rgba(255,255,255,0.9); font-size: 0.95rem; font-weight: 300; display: flex; gap: 10px;
+            list-style: none; padding: 15px 0; border-bottom: 1px solid #eee; 
+            color: var(--text-dark); font-size: 0.95rem; display: flex; gap: 10px;
         }
-        .price-list li span { color: var(--accent-light); opacity: 0.6; flex-shrink: 0; }
-        .price-list li ul { margin-top: 10px; padding-left: 20px; list-style: circle; color: rgba(255,255,255,0.7); font-size: 0.9rem;}
+        .price-list li span { color: var(--bg-color); font-weight: bold; flex-shrink: 0; }
+        .price-list li ul { margin-top: 10px; padding-left: 20px; list-style: circle; color: var(--text-muted); font-size: 0.9rem;}
 
+        /* Кнопка на світлому фоні */
         .btn-outline {
             display: inline-block;
-            color: var(--accent-light);
+            color: var(--text-light);
+            background: var(--bg-color);
             padding: 18px 0;
             border-radius: 50px;
             text-decoration: none;
             font-size: 0.95rem;
             transition: 0.4s;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 500;
+            border: 1px solid var(--bg-color);
+            font-weight: 600;
             margin-top: auto;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-align: center;
             width: 100%;
         }
-        .btn-outline:hover { background: var(--accent-light); color: var(--bg-color); border-color: var(--accent-light); }
+        .btn-outline:hover { background: transparent; color: var(--bg-color); }
 
-        /* Графік вартості (Таблиця) */
+        /* --- ТАБЛИЦЯ ЦІН (БІЛА) --- */
         .schedule-box {
             max-width: 900px;
             margin: 0 auto;
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
+            background: var(--card-bg);
             border-radius: 20px;
             padding: 40px;
-            backdrop-filter: blur(5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            color: var(--text-dark);
         }
-        .schedule-box h3 { text-align: center; font-family: var(--font-head); font-size: 2rem; color: var(--accent-light); margin-bottom: 30px; font-weight: 500;}
+        .schedule-box h3 { text-align: center; font-family: var(--font-head); font-size: 2.2rem; color: var(--bg-color); margin-bottom: 30px; font-weight: 600;}
         
         .schedule-table { width: 100%; border-collapse: collapse; text-align: left; }
-        .schedule-table th { font-weight: 500; color: rgba(255,255,255,0.5); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; padding: 15px; border-bottom: 1px solid var(--border-color); }
-        .schedule-table td { padding: 20px 15px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: 300; }
+        .schedule-table th { font-weight: 600; color: var(--text-muted); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; padding: 15px; border-bottom: 2px solid #eee; }
+        .schedule-table td { padding: 20px 15px; border-bottom: 1px solid #eee; }
         .schedule-table tr:last-child td { border-bottom: none; }
         
-        .phase-name { color: var(--accent-light); font-weight: 500; font-size: 1.05rem; display: block; margin-bottom: 5px; }
-        .phase-date { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
-        .td-price { font-family: var(--font-head); font-size: 1.4rem; color: var(--accent-light); }
+        .phase-name { color: var(--bg-color); font-weight: 700; font-size: 1.05rem; display: block; margin-bottom: 5px; }
+        .phase-date { color: var(--text-muted); font-size: 0.85rem; font-weight: 600;}
+        .td-price { font-family: var(--font-head); font-size: 1.6rem; color: var(--text-dark); font-weight: 600;}
+
+        /* --- ПОРІВНЯЛЬНА ТАБЛИЦЯ (БІЛА) --- */
+        .comparison-box {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 60px auto 0;
+            max-width: 900px;
+            color: var(--text-dark);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        .comparison-box h3 {
+            font-family: var(--font-head);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: var(--bg-color);
+        }
+        .compare-table { width: 100%; border-collapse: collapse; text-align: center; }
+        .compare-table th {
+            font-family: var(--font-head); font-size: 1.4rem;
+            padding: 15px; border-bottom: 2px solid var(--bg-color);
+            color: var(--bg-color);
+        }
+        .compare-table th:first-child { text-align: left; }
+        .compare-table td {
+            padding: 20px 15px; border-bottom: 1px solid #eee;
+            font-weight: 500; font-size: 1rem; color: var(--text-dark);
+        }
+        .compare-table td:first-child { text-align: left; }
+        .check-yes { color: var(--bg-color); font-size: 1.3rem; font-weight: bold;}
+        .check-no { color: #ccc; font-size: 1.3rem; }
 
         /* --- FAQ --- */
         .faq-section { padding: 60px 0 100px; }
         .faq-header { font-size: 1.25rem !important; }
-        .faq-body { padding-left: 0 !important; }
+        .faq-body { padding-left: 30px !important; }
 
         footer { 
             padding: 50px 0; text-align: center; font-size: 0.85rem; 
-            color: rgba(255,255,255, 0.4); border-top: 1px solid var(--border-color);
+            color: rgba(255,255,255, 0.6); border-top: 1px solid rgba(255,255,255,0.1);
             letter-spacing: 1px; text-transform: uppercase;
         }
 
@@ -330,14 +404,21 @@
             .intro-box { padding: 30px 20px; margin-bottom: 40px; }
             .intro-box h3 { font-size: 1.8rem; }
             .btn-chic { width: 100%; max-width: 300px; padding: 18px 0; text-align: center; }
-            .accordion-header { font-size: 1.4rem; padding: 20px 0; flex-direction: column; align-items: flex-start; gap: 10px; }
+            
+            .accordion-header { font-size: 1.2rem; padding: 20px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
             .accordion-header .icon-plus { align-self: flex-end; margin-top: -35px; }
+            .body-inner { padding: 0 20px 30px 20px; }
+            
             .container { padding: 0 20px; }
-            .body-inner { padding: 0 0 20px 10px; }
             .price-card { padding: 40px 20px; }
-            .schedule-box { padding: 30px 15px; }
-            .schedule-table th, .schedule-table td { padding: 15px 5px; }
-            .td-price { font-size: 1.1rem; }
+            .price-card.premium { transform: none; }
+            
+            .schedule-box, .comparison-box { padding: 30px 15px; }
+            .schedule-table th, .schedule-table td { padding: 15px 5px; font-size: 0.9rem;}
+            .td-price { font-size: 1.2rem; }
+            
+            .compare-table th, .compare-table td { padding: 12px 5px; font-size: 0.85rem; }
+            .compare-table th { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -391,7 +472,7 @@
                                     <li>Архітектура особистого бренду</li>
                                     <li>Контент як система продажу</li>
                                     <li>Як будувати довіру</li>
-                                    <li style="color:var(--accent-light);"><i>Практика: створення власної SMM-стратегії</i></li>
+                                    <li style="color:var(--bg-color); font-weight:600;"><i>Практика: створення власної SMM-стратегії</i></li>
                                 </ul>
                             </div>
                             <div class="lesson-block">
@@ -423,7 +504,7 @@
                             </div>
                             <div class="lesson-block">
                                 <div class="lesson-title">Урок 5. Як сформувати сильне УТП</div>
-                                <div class="lesson-text">Види контенту: прогрів, експертність, продаж. Контент-матриця. Сценарії прогрівів. Сторіс-структури.<br><i style="color:var(--accent-light);">Практика: створення воронки під свій продукт.</i></div>
+                                <div class="lesson-text">Види контенту: прогрів, експертність, продаж. Контент-матриця. Сценарії прогрівів. Сторіс-структури.<br><i style="color:var(--bg-color); font-weight:600;">Практика: створення воронки під свій продукт.</i></div>
                             </div>
                             <div class="lesson-block">
                                 <div class="lesson-title">Урок 6. Аналіз цільової аудиторії</div>
@@ -462,7 +543,7 @@
 
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div><span class="lesson-tag">MOD 4</span> Visual & Video Production (Креатив)</div>
+                        <div><span class="lesson-tag">MOD 4</span> Visual & Video Production</div>
                         <span class="icon-plus">+</span>
                     </button>
                     <div class="accordion-body">
@@ -513,8 +594,8 @@
                     <div class="speaker-img-box">
                         <img src="./IMG_3510.JPG" alt="Юлія" class="speaker-photo">
                     </div>
-                    <h3 style="font-family: var(--font-head); font-size:2.2rem; color:var(--accent-light); font-weight: 500;">Юлія</h3>
-                    <p style="text-transform:uppercase; font-size:0.8rem; letter-spacing:2px; color:rgba(255,255,255,0.5);">Digital Strategy & SMM</p>
+                    <h3>Юлія</h3>
+                    <p class="speaker-role">Digital Strategy & SMM</p>
                     <div class="speaker-bio">
                         Експерт з побудови системних продажів через контент. Допомагає експертам та бізнесам знаходити своє позиціонування та будувати глибокі стратегії. Спеціалізується на професійному розборі профілів та проектів.
                     </div>
@@ -524,8 +605,8 @@
                     <div class="speaker-img-box">
                         <img src="./IMG_3511.jpg" alt="Володимир Тетерук" class="speaker-photo">
                     </div>
-                    <h3 style="font-family: var(--font-head); font-size:2.2rem; color:var(--accent-light); font-weight: 500;">Володимир Тетерук</h3>
-                    <p style="text-transform:uppercase; font-size:0.8rem; letter-spacing:2px; color:rgba(255,255,255,0.5);">AI Specialist</p>
+                    <h3>Володимир Тетерук</h3>
+                    <p class="speaker-role">AI Specialist</p>
                     <div class="speaker-bio">
                         <ul style="padding-left: 0; list-style: none;">
                             <li>✦ <strong>Власник АІ агенції</strong> та стратегічний партнер з впровадження ШІ в бізнес.</li>
@@ -533,7 +614,7 @@
                             <li>✦ <strong>Спеціалізація:</strong> Побудова відділів AI-продажів, цифрові помічники та автоматизація. Розробка корпоративних тренінгів для топменеджменту.</li>
                             <li>✦ <strong>Довіра лідерів:</strong> Серед клієнтів — Nova Poshta, Megogo, Lamel, Omixio, Askania.</li>
                         </ul>
-                        <p style="margin-top: 15px; font-style: italic; color: var(--accent-light); opacity: 0.9;">"Штучний інтелект не замінить SMM-спеціаліста. Його замінить інший SMM-спеціаліст, який вже опанував ШІ."</p>
+                        <p style="margin-top: 15px; font-style: italic;"><i>"Штучний інтелект не замінить SMM-спеціаліста. Його замінить інший SMM-спеціаліст, який вже опанував ШІ."</i></p>
                     </div>
                 </div>
             </div>
@@ -542,44 +623,48 @@
 
     <section id="pricing" class="pricing-section">
         <div class="container">
-            <h2 class="section-title"><i>Варіанти</i> участі</h2>
+            <h2 class="section-title"><i>Варіанти</i> участі та наповнення пакетів</h2>
             
             <div class="pricing-grid">
                 <div class="price-card">
-                    <h3 style="font-family: var(--font-head); font-size:2.8rem; color: white; font-weight: 500;">Basic</h3>
+                    <h3 style="font-family: var(--font-head); font-size:2.8rem; color: white; font-weight: 500;">📦 Basic</h3>
                     <p class="pkg-info">Оптимальний вибір для спеціалістів, які прагнуть швидко опанувати ШІ та почати застосовувати його в роботі.</p>
+                    <div class="price-val">3 750 <span style="font-size:1rem; color:var(--text-muted);">грн</span></div>
+                    <div class="price-desc">Ціна Early Birds (до 01.04)</div>
                     
                     <ul class="price-list">
-                        <li><span>✦</span> Доступ до 5 навчальних тем (понад 13 уроків)</li>
-                        <li><span>✦</span> Вступний вебінар з експертами <br>(*Жива участь — лише при реєстрації до 01.04, після — у записі)</li>
-                        <li><span>✦</span> 4 місяці доступу до платформи</li>
+                        <li><span>✦</span> <div><strong>Доступ до 5 навчальних тем:</strong> Програма включає понад 13 уроків (деякі теми розділені на декілька частин або відео для максимально детального розбору).</div></li>
+                        <li><span>✦</span> <div><strong>Вебінар з Юлією та Володимиром:</strong> *Жива участь — лише за умови реєстрації у період Early Birds (до 01.04). При реєстрації після 01.04 — вебінар доступний у записі на платформі.</div></li>
+                        <li><span>✦</span> <div><strong>4 місяці доступу до платформи:</strong> Навчайтеся у власному темпі на зручному інтерфейсі з будь-якого пристрою.</div></li>
                     </ul>
-                    <a href="https://secure.wayforpay.com/payment/sce1e3c1798ac" class="btn-outline">Обрати тариф</a>
+                    <a href="https://secure.wayforpay.com/payment/sce1e3c1798ac" class="btn-outline" style="background:var(--bg-color); color:var(--text-light);">Обрати тариф</a>
                 </div>
 
                 <div class="price-card premium">
-                    <div style="position:absolute; top:0; left:50%; transform:translate(-50%, -50%); background:var(--accent-light); color:var(--bg-color); padding:8px 25px; border-radius:30px; font-size:0.8rem; font-weight:600; letter-spacing: 1px;">MAX RESULT</div>
-                    <h3 style="font-family: var(--font-head); font-size:2.8rem; color: white; font-weight: 500;">Premium</h3>
+                    <div style="position:absolute; top:0; left:50%; transform:translate(-50%, -50%); background:var(--bg-color); color:var(--text-light); padding:8px 25px; border-radius:30px; font-size:0.8rem; font-weight:600; letter-spacing: 1px;">MAX RESULT</div>
+                    <h3 style="font-family: var(--font-head); font-size:2.8rem; color: white; font-weight: 500;">🔥 Premium</h3>
                     <p class="pkg-info">Максимальний результат, професійне визнання та особиста підтримка від експертів.</p>
+                    <div class="price-val">5 000 <span style="font-size:1rem; color:var(--text-muted);">грн</span></div>
+                    <div class="price-desc">Ціна Early Birds (до 01.04)</div>
                     
                     <ul class="price-list">
-                        <li><span>✦</span> Все, що входить у пакет BASIC</li>
-                        <li><span>✦</span> Доступ до матеріалів на 1 рік</li>
-                        <li><span>✦</span> Іменний сертифікат спеціаліста</li>
-                        <li><span>✦</span> Ексклюзивна QA-сесія зі спікерами</li>
-                        <li><span>✦</span> <strong>Участь у розіграші персональних бонусів (3 переможці):</strong>
+                        <li><span>✦</span> <div>Все, що входить у пакет BASIC.</div></li>
+                        <li><span>✦</span> <div><strong>Доступ до матеріалів на 1 рік:</strong> Річний запас знань та можливість повернутися до уроків у будь-який момент.</div></li>
+                        <li><span>✦</span> <div><strong>Іменний сертифікат:</strong> Підтвердження вашої кваліфікації як AI-спеціаліста в SMM та маркетингу.</div></li>
+                        <li><span>✦</span> <div><strong>Ексклюзивна QA-сесія зі спікерами:</strong> Окрема онлайн-зустріч у форматі «Питання-Відповідь» для розбору ваших конкретних робочих кейсів.</div></li>
+                        <li><span>✦</span> <div><strong>Участь у розіграші персональних бонусів (3 переможці):</strong>
                             <ul>
-                                <li>Від Юлії: Професійний розбір вашого профілю або проєкту</li>
-                                <li>Від Володимира: Годинна стратегічна консультація з впровадження AI-рішень</li>
+                                <li>Від Юлії: Професійний розбір вашого профілю або проєкту.</li>
+                                <li>Від Володимира: Годинна стратегічна консультація з впровадження AI-рішень у вашу роботу.</li>
                             </ul>
-                        </li>
+                        </div></li>
                     </ul>
-                    <a href="https://secure.wayforpay.com/payment/sc28e0ea65534" class="btn-chic" style="text-align: center; width: 100%;">Обрати тариф</a>
+                    <a href="https://secure.wayforpay.com/payment/sc28e0ea65534" class="btn-outline" style="background:var(--bg-color); color:var(--text-light);">Обрати тариф</a>
                 </div>
             </div>
 
             <div class="schedule-box">
-                <h3>Графік підвищення вартості</h3>
+                <h3>Графік вартості</h3>
                 <div style="overflow-x: auto;">
                     <table class="schedule-table">
                         <thead>
@@ -626,11 +711,59 @@
                     </table>
                 </div>
             </div>
+
+            <div class="comparison-box">
+                <h3>Порівняння пакетів</h3>
+                <div style="overflow-x: auto;">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Можливість</th>
+                                <th>BASIC</th>
+                                <th>PREMIUM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Доступ до 10 навчальних тем</td>
+                                <td><span class="check-yes">✅</span></td>
+                                <td><span class="check-yes">✅</span></td>
+                            </tr>
+                            <tr>
+                                <td>Вступний вебінар з експертами</td>
+                                <td><span class="check-yes">✅</span></td>
+                                <td><span class="check-yes">✅</span></td>
+                            </tr>
+                            <tr>
+                                <td>Термін доступу до платформи</td>
+                                <td>4 місяці</td>
+                                <td>1 рік</td>
+                            </tr>
+                            <tr>
+                                <td>Сертифікат про навчання</td>
+                                <td><span class="check-no">❌</span></td>
+                                <td><span class="check-yes">✅</span></td>
+                            </tr>
+                            <tr>
+                                <td>QA-сесія (Питання-Відповіді)</td>
+                                <td><span class="check-no">❌</span></td>
+                                <td><span class="check-yes">✅</span></td>
+                            </tr>
+                            <tr>
+                                <td>Участь у розіграші консультацій</td>
+                                <td><span class="check-no">❌</span></td>
+                                <td><span class="check-yes">✅</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section class="faq-section container">
-        <h2 class="section-title" style="font-size: 3rem;"><i>Часті</i> запитання (FAQ)</h2>
+        <h2 class="section-title"><i>Часті</i> запитання</h2>
         <div class="accordion">
             <div class="accordion-item">
                 <button class="accordion-header faq-header">
@@ -639,7 +772,7 @@
                 </button>
                 <div class="accordion-body">
                     <div class="body-inner faq-body">
-                        <p class="lesson-text">Для комфортного навчання та виконання практичних завдань наявність комп’ютера або ноутбука є обов’язковою. Хоча переглядати лекції можна і з телефону, робота з нейромережами, налаштування автоматизацій та створення контенту потребують десктопного інтерфейсу для ефективної роботи та швидкого результату.</p>
+                        <p class="lesson-text">Для комфортного навчання та виконання практичних завдань наявність комп’ютера або ноутбука є обов’язковою. Хоча переглядати лекції можна і з телефону, робота з нейромережами потребує десктопного інтерфейсу.</p>
                     </div>
                 </div>
             </div>
@@ -651,7 +784,7 @@
                 </button>
                 <div class="accordion-body">
                     <div class="body-inner faq-body">
-                        <p class="lesson-text">Ні, знання англійської не є критичним. Сучасні нейромережі чудово розуміють українську мову. Крім того, ми показуємо, як використовувати AI-інструменти для миттєвого перекладу інтерфейсів або технічної документації. Ви зможете повноцінно працювати з ШІ, володіючи лише рідною мовою.</p>
+                        <p class="lesson-text">Ні, знання англійської не є критичним. Сучасні нейромережі чудово розуміють українську мову. Крім того, ми показуємо, як використовувати AI-інструменти для миттєвого перекладу інтерфейсів або технічної документації.</p>
                     </div>
                 </div>
             </div>
@@ -663,7 +796,7 @@
                 </button>
                 <div class="accordion-body">
                     <div class="body-inner faq-body">
-                        <p class="lesson-text">На старті навчання ви зможете протестувати більшість сервісів абсолютно безкоштовно. Багато нейромереж мають пробні періоди або безкоштовні ліміти, яких достатньо для бази. Проте для глибинного навчання та професійного використання ми рекомендуємо (за бажанням) придбати підписки, щоб отримати доступ до максимальної потужності та швидкості інструментів.</p>
+                        <p class="lesson-text">На старті навчання ви зможете протестувати більшість сервісів абсолютно безкоштовно. Проте для глибинного навчання та професійного використання ми рекомендуємо (за бажанням) придбати підписки.</p>
                     </div>
                 </div>
             </div>
@@ -675,7 +808,7 @@
                 </button>
                 <div class="accordion-body">
                     <div class="body-inner faq-body">
-                        <p class="lesson-text">Так, це ідеальна точка входу. Для новачків курс стане потужним стартом у професії. Ви одразу навчитеся працювати з технологіями майбутнього, що зробить ваше подальше навчання легшим, а конкурентну перевагу на ринку праці — беззаперечною. Ви почнете кар'єру з інструментами, до яких інші йтимуть роками.</p>
+                        <p class="lesson-text">Так, це ідеальна точка входу. Для новачків курс стане потужним стартом у професії. Ви почнете кар'єру з інструментами, до яких інші йтимуть роками.</p>
                     </div>
                 </div>
             </div>
@@ -687,7 +820,7 @@
                 </button>
                 <div class="accordion-body">
                     <div class="body-inner faq-body">
-                        <p class="lesson-text">Безумовно. Для професіоналів головна цінність курсу — автоматизація та делегування рутини. Ви дізнаєтеся, як передати штучному інтелекту 60-80% монотонних завдань, звільнивши час для стратегії, творчості та масштабування ваших проєктів. Це спосіб працювати менше, а встигати в рази більше.</p>
+                        <p class="lesson-text">Безумовно. Для професіоналів головна цінність курсу — автоматизація та делегування рутини. Ви дізнаєтеся, як передати штучному інтелекту 60-80% монотонних завдань.</p>
                     </div>
                 </div>
             </div>
