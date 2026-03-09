@@ -95,7 +95,17 @@ const orderInput = document.getElementById('lesson-order');
 const modTagInput = document.getElementById('lesson-module-tag');
 const modTitleInput = document.getElementById('lesson-module-title');
 const titleInput = document.getElementById('lesson-title');
-const descInput = document.getElementById('lesson-desc');
+// Ініціалізація візуального редактора Quill
+const quill = new Quill('#editor-container', {
+    theme: 'snow',
+    modules: {
+        toolbar: [
+            ['bold', 'italic', 'underline'],
+            [{ 'list': 'bullet' }] // Кнопка маркованого списку
+        ]
+    },
+    placeholder: 'Опис уроку...'
+});
 
 // Відкрити модалку для ДОДАВАННЯ
 openAddModalBtn.addEventListener('click', () => {
@@ -105,7 +115,7 @@ openAddModalBtn.addEventListener('click', () => {
     modTagInput.value = '';
     modTitleInput.value = '';
     titleInput.value = '';
-    descInput.value = '';
+    quill.root.innerHTML = '';
     modal.style.display = 'flex';
 });
 
@@ -171,7 +181,7 @@ saveLessonBtn.addEventListener('click', async () => {
         module_tag: modTagInput.value,
         module_title: modTitleInput.value,
         title: titleInput.value,
-        description: descInput.value
+        description: quill.root.innerHTML
     };
 
     try {
@@ -224,61 +234,11 @@ function attachLessonButtonsEvents() {
                 modTagInput.value = data.module_tag;
                 modTitleInput.value = data.module_title;
                 titleInput.value = data.title;
-                descInput.value = data.description;
+                quill.clipboard.dangerouslyPasteHTML(data.description || '');
                 
                 modal.style.display = 'flex';
             }
             btn.textContent = '✎ Редагувати';
         });
     });
-
-    // === ТИМЧАСОВИЙ КОД ДЛЯ АВТОЗАВАНТАЖЕННЯ ===
-const initialLessons = [
-    { order: 1, module_tag: "MOD 1", module_title: "Фундамент та логіка роботи з ШІ", title: "Урок 1. Стратегія особистого бренду та бізнесу в 2026", description: "<ul class='lesson-list'><li>Позиціонування експерта</li><li>Визначення ніші</li><li>Архітектура особистого бренду</li><li>Контент як система продажу</li><li>Як будувати довіру</li><li style='color:var(--bg-color); font-weight:600;'><i>Практика: створення власної SMM-стратегії</i></li></ul>" },
-    { order: 2, module_tag: "MOD 1", module_title: "Фундамент та логіка роботи з ШІ", title: "Урок 2. Мистецтво промтингу", description: "Технологія написання професійних запитів та алгоритми взаємодії з ШІ для отримання ідеального результату з першої спроби." },
-    { order: 3, module_tag: "MOD 1", module_title: "Фундамент та логіка роботи з ШІ", title: "Урок 3. Огляд інструментів для бізнесу", description: "ChatGPT vs Claude vs Perplexity vs Copilot. Обираємо найкращий інструмент під конкретні SMM-задачі." },
-    { order: 4, module_tag: "MOD 1", module_title: "Фундамент та логіка роботи з ШІ", title: "Урок 4. База промптів для маркетолога", description: "Отримання готового набору з 100+ перевірених промптів для щоденної роботи." },
-    
-    { order: 5, module_tag: "MOD 2", module_title: "Стратегія та глибока аналітика", title: "Урок 4(b). Як СММ спеціалісту працювати з:", description: "Глибокою сегментацією. Біль, тригери, страхи. JTBD." },
-    { order: 6, module_tag: "MOD 2", module_title: "Стратегія та глибока аналітика", title: "Урок 5. Як сформувати сильне УТП", description: "Види контенту: прогрів, експертність, продаж. Контент-матриця. Сценарії прогрівів. Сторіс-структури.<br><br><i style='color:var(--bg-color); font-weight:600;'>Практика: створення воронки під свій продукт.</i>" },
-    { order: 7, module_tag: "MOD 2", module_title: "Стратегія та глибока аналітика", title: "Урок 6. Аналіз цільової аудиторії", description: "Використання ШІ для глибокої сегментації та вивчення реальних болів і тригерів вашої ЦА." },
-    { order: 8, module_tag: "MOD 2", module_title: "Стратегія та глибока аналітика", title: "Урок 7. Контент-план та лід-магніт у таблицях", description: "Створення автоматизованої бази, яка генерує ідеї та воронки на місяці вперед." },
-    
-    { order: 9, module_tag: "MOD 3", module_title: "Текстовий контент та копірайтинг", title: "Урок 8. Як адаптувати текст під живий стиль", description: "Як зробити контент “не AI, а з душею”. Структура відео, які продають." },
-    { order: 10, module_tag: "MOD 3", module_title: "Текстовий контент та копірайтинг", title: "Урок 9. AI у написанні текстів", description: "Базові принципи створення якісного копірайтингу, що чіпляє та не виглядає як 'роботизований'." },
-    { order: 11, module_tag: "MOD 3", module_title: "Текстовий контент та копірайтинг", title: "Урок 10. Автоматизоване переписування постів", description: "Як за хвилини адаптувати один і той самий контент під різні платформи (Instagram, Telegram, LinkedIn)." },
-    
-    { order: 12, module_tag: "MOD 4", module_title: "Visual & Video Production", title: "Урок 11. Як створити систему", description: "Модель 3-3-3. Баланс прогрів/експертність/продаж." },
-    { order: 13, module_tag: "MOD 4", module_title: "Visual & Video Production", title: "Урок 12. Адаптація текстів", description: "Як адаптувати текст під живий стиль. Як зробити контент “не AI, а з душею”. Структура відео, які продають." },
-    { order: 14, module_tag: "MOD 4", module_title: "Visual & Video Production", title: "Урок 13. Огляд Midjourney", description: "Глибоке занурення в генерацію унікального візуального контенту та рекламних креативів професійного рівня." },
-    { order: 15, module_tag: "MOD 4", module_title: "Visual & Video Production", title: "Урок 14. AI-Аватари та клонування голосу", description: "Створення цифрових персонажів (Heygen) та синтез голосу для Reels без залучення дикторів." },
-    { order: 16, module_tag: "MOD 4", module_title: "Visual & Video Production", title: "Урок 15. Створення відео з ШІ (Kling & Runway)", description: "Практичний воркшоп зі збірки реалістичних роликів та анімацій, що привертають увагу." },
-    
-    { order: 17, module_tag: "MOD 5", module_title: "Автоматизація та масштабування", title: "Урок 16. Автоматизація Instagram (Direct & Comments)", description: "Налаштування системи автоматичних привітань та відповідей на коментарі для підвищення охоплень та лояльності підписників." }
-];
-
-const autoBtn = document.getElementById('auto-upload-btn');
-if (autoBtn) {
-    
-    autoBtn.addEventListener('click', async () => {
-        if(!confirm('Завантажити всі 17 уроків у базу?')) return;
-        
-        autoBtn.innerHTML = '⏳ Завантаження... (не закривай сторінку)';
-        autoBtn.style.background = '#f39c12';
-        
-        try {
-            for (let lesson of initialLessons) {
-                await addDoc(collection(db, "lessons"), lesson);
-            }
-            autoBtn.innerHTML = '✅ ГОТОВО! Уроки в базі. Тепер видали код і кнопку.';
-            autoBtn.style.background = '#27ae60';
-            loadLessons(); // Оновлюємо список
-        } catch (e) {
-            console.error(e);
-            autoBtn.innerHTML = '❌ Помилка завантаження';
-            autoBtn.style.background = '#e74c3c';
-        }
-    });
-}
-// ==========================================================
 }

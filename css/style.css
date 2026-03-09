@@ -235,9 +235,10 @@ h1 i { font-weight: 400; font-style: italic; opacity: 0.9; }
 
 .lesson-title { font-weight: 600; color: var(--bg-color); margin-bottom: 10px; font-size: 1.1rem; }
 .lesson-text { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
-.lesson-list { list-style: none; padding-left: 10px; margin-top: 5px; }
-.lesson-list li { margin-bottom: 8px; position: relative; padding-left: 20px; color: var(--text-muted); }
-.lesson-list li::before { content: "✦"; color: var(--bg-color); position: absolute; left: 0; font-size: 0.8rem; top: 4px; opacity: 0.5; }
+.lesson-text ul { list-style: none; padding-left: 10px; margin-top: 5px; }
+.lesson-text li { margin-bottom: 8px; position: relative; padding-left: 20px; color: var(--text-muted); }
+.lesson-text li::before { content: "✦"; color: var(--bg-color); position: absolute; left: 0; font-size: 0.8rem; top: 4px; opacity: 0.5; }
+.lesson-text p { margin-bottom: 8px; }
 
 /* --- SPEAKERS --- */
 .speakers-grid {
@@ -398,3 +399,23 @@ footer {
     .compare-table th, .compare-table td { padding: 12px 5px; font-size: 0.85rem; }
     .compare-table th { font-size: 1.1rem; }
 }
+
+/* --- АНІМАЦІЇ ПРИ СКРОЛІ --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Робимо затримку для карток тарифів та спікерів, щоб вони випливали по черзі */
+.pricing-grid .price-card:nth-child(1) { transition-delay: 0.1s; }
+.pricing-grid .price-card:nth-child(2) { transition-delay: 0.3s; }
+
+.speakers-grid .speaker-card:nth-child(1) { transition-delay: 0.1s; }
+.speakers-grid .speaker-card:nth-child(2) { transition-delay: 0.3s; }
