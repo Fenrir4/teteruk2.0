@@ -107,27 +107,27 @@ h1 i { font-weight: 400; font-style: italic; opacity: 0.9; }
 .intro-list .star { color: var(--bg-color); font-size: 1.2rem; }
 
 /* --- КНОПКИ --- */
-.btn-chic {
-    display: inline-block;
-    background-color: var(--accent-light);
-    color: var(--bg-color);
-    padding: 20px 60px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 1.15rem;
-    transition: 0.4s;
-    border: 2px solid var(--accent-light);
-    font-weight: 700;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
+        .btn-chic {
+            display: inline-block;
+            background-color: #ffffff; /* Зробили фон яскраво-білим */
+            color: var(--bg-color); /* Текст фірмовий бордовий */
+            padding: 20px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.15rem;
+            transition: 0.4s;
+            border: 2px solid #ffffff; /* Рамка теж біла */
+            font-weight: 800; /* Зробили текст ще жирнішим */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4); /* Додали густу тінь для об'єму */
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
 
-.btn-chic:hover {
-    background-color: transparent;
-    color: var(--accent-light);
-    box-shadow: none;
-}
+        .btn-chic:hover {
+            background-color: transparent; /* При наведенні фон зникає */
+            color: #ffffff; /* Текст стає білим */
+            box-shadow: none;
+        }
 
 .btn-outline {
     display: inline-block;
