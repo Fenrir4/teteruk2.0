@@ -368,11 +368,19 @@ h1 i { font-weight: 400; font-style: italic; opacity: 0.9; }
 .faq-header { font-size: 1.25rem !important; }
 .faq-body { padding-left: 30px !important; }
 
+/* --- FOOTER ОНОВЛЕНИЙ --- */
 footer { 
-    padding: 50px 0; text-align: center; font-size: 0.85rem; 
-    color: rgba(255,255,255, 0.6); border-top: 1px solid rgba(255,255,255,0.1);
-    letter-spacing: 1px; text-transform: uppercase;
+    padding: 60px 0 40px; text-align: center; font-size: 0.9rem; 
+    color: rgba(255,255,255, 0.7); border-top: 1px solid rgba(255,255,255,0.1);
+    line-height: 1.8;
 }
+.footer-info { margin-bottom: 25px; font-weight: 500; letter-spacing: 1px; color: var(--text-light); }
+.footer-links { margin-bottom: 20px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.footer-links a { 
+    color: rgba(255,255,255,0.7); text-decoration: none; transition: 0.3s; 
+    border-bottom: 1px dashed rgba(255,255,255,0.3); padding-bottom: 2px;
+}
+.footer-links a:hover { color: var(--text-light); border-bottom-color: var(--text-light); }
 
 /* --- MOBILE --- */
 @media (max-width: 768px) {
