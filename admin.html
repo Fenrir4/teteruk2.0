@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMM AI | Control Panel</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #1a0507; /* Дуже темний винний фон для адмінки */
+            color: #ffffff;
+            font-family: 'Manrope', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- ЛОГІН ЕКРАН --- */
+        #login-screen {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            height: 100vh; width: 100%; position: absolute; top: 0; left: 0; z-index: 1000;
+            background-color: #1a0507;
+        }
+        .login-box {
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15); padding: 50px 40px;
+            border-radius: 20px; width: 100%; max-width: 400px; text-align: center;
+        }
+        .login-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 5px; }
+        .login-box p { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-bottom: 30px; letter-spacing: 2px;}
+
+        /* --- ЗАГАЛЬНІ ЕЛЕМЕНТИ --- */
+        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group label { display: block; font-size: 0.85rem; margin-bottom: 8px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; }
+        .input-group input, .input-group textarea {
+            width: 100%; padding: 15px; border-radius: 10px;
+            background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2);
+            color: white; font-family: 'Manrope', sans-serif; font-size: 1rem;
+            transition: 0.3s;
+        }
+        .input-group input:focus, .input-group textarea:focus { outline: none; border-color: #ffffff; background: rgba(0,0,0,0.5); }
+        
+        .btn {
+            padding: 15px 30px; border: none; border-radius: 10px;
+            font-size: 0.95rem; font-weight: 700; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+            font-family: 'Manrope', sans-serif;
+        }
+        .btn-primary { background: #ffffff; color: #4a0a10; width: 100%; }
+        .btn-primary:hover { background: #e0e0e0; transform: translateY(-2px); }
+        .btn-secondary { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+        .btn-danger { background: rgba(255, 71, 87, 0.1); color: #ff4757; border: 1px solid rgba(255, 71, 87, 0.3); padding: 8px 15px; font-size: 0.8rem;}
+        .btn-danger:hover { background: rgba(255, 71, 87, 0.2); }
+        .btn-edit { background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.3); padding: 8px 15px; font-size: 0.8rem;}
+        .btn-edit:hover { background: rgba(255, 255, 255, 0.2); }
+
+        #error-msg { color: #ff6b6b; font-size: 0.85rem; margin-top: 15px; display: none; text-align: center; }
+
+        /* --- ДАШБОРД --- */
+        #dashboard { display: none; width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
+        header h1 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 500; }
+        
+        .admin-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+        @media(max-width: 900px) { .admin-grid { grid-template-columns: 1fr; } }
+
+        .admin-card {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px; padding: 30px;
+        }
+        .admin-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 25px; color: #fdfbf9; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 15px;}
+
+        /* Списки уроків */
+        .lesson-item {
+            background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05);
+            padding: 20px; border-radius: 12px; margin-bottom: 15px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .lesson-info h4 { margin-bottom: 5px; font-size: 1.1rem; color: #fff; }
+        .lesson-info p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+        .lesson-actions { display: flex; gap: 10px; }
+
+        /* --- TOAST (Сповіщення) --- */
+        .toast {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #4cd137; color: white; padding: 15px 25px;
+            border-radius: 10px; font-weight: 600; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            opacity: 0; transform: translateY(20px); transition: 0.4s; pointer-events: none; z-index: 9999;
+        }
+        .toast.show { opacity: 1; transform: translateY(0); }
+
+        /* --- МОДАЛЬНЕ ВІКНО --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+            display: none; justify-content: center; align-items: center; z-index: 2000;
+        }
+        .modal-content {
+            background: #1a0507; border: 1px solid rgba(255,255,255,0.2);
+            padding: 40px; border-radius: 20px; width: 100%; max-width: 600px;
+            max-height: 90vh; overflow-y: auto;
+        }
+        .modal-content h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 25px; }
+        .modal-actions { display: flex; gap: 15px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="login-box">
+            <h2>AI_SMM.</h2>
+            <p>Control Panel</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required autocomplete="email">
+                </div>
+                <div class="input-group">
+                    <label>Пароль</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="login-btn">Увійти</button>
+                <div id="error-msg">Невірний логін або пароль</div>
+            </form>
+        </div>
+    </div>
+
+    <div id="dashboard">
+        <header>
+            <h1>Панель Керування</h1>
+            <button id="logout-btn" class="btn btn-secondary" style="padding: 10px 20px;">Вийти</button>
+        </header>
+
+        <div class="admin-grid">
+            <div>
+                <section class="admin-card" style="margin-bottom: 30px;">
+                    <h3>🔗 Посилання на оплату</h3>
+                    <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-bottom: 20px;">Вставте лінки з WayForPay сюди. Вони автоматично оновляться на сайті.</p>
+                    
+                    <div class="input-group">
+                        <label>Тариф BASIC</label>
+                        <input type="url" id="link-basic" placeholder="https://secure.wayforpay.com/payment/...">
+                    </div>
+                    <div class="input-group">
+                        <label>Тариф PREMIUM</label>
+                        <input type="url" id="link-premium" placeholder="https://secure.wayforpay.com/payment/...">
+                    </div>
+                    <button id="save-links-btn" class="btn btn-primary">Зберегти посилання</button>
+                </section>
+            </div>
+
+            <div>
+                <section class="admin-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 25px;">
+                        <h3 style="border: none; margin: 0; padding: 0;">📚 Уроки (Програма)</h3>
+                        <button id="open-add-modal-btn" class="btn btn-secondary" style="padding: 10px 20px;">+ Додати урок</button>
+                    </div>
+                    
+                    <button id="auto-upload-btn" style="background: #4cd137; color: white; padding: 15px; width: 100%; border-radius: 10px; border: none; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);">🚀 АВТО-ЗАВАНТАЖИТИ ВСІ УРОКИ В БАЗУ</button>
+
+                    <div id="lessons-list">
+                        <p style="color: rgba(255,255,255,0.5); text-align: center; padding: 20px;">Завантаження уроків...</p>
+                        </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modal-title">Додати новий урок</h3>
+            <input type="hidden" id="lesson-id"> <div class="input-group">
+                <label>Порядковий номер (для сортування, напр: 1)</label>
+                <input type="number" id="lesson-order" required placeholder="1">
+            </div>
+            <div class="input-group">
+                <label>Тег модуля (напр: MOD 1)</label>
+                <input type="text" id="lesson-module-tag" required placeholder="MOD 1">
+            </div>
+            <div class="input-group">
+                <label>Назва модуля (напр: Фундамент та логіка)</label>
+                <input type="text" id="lesson-module-title" required placeholder="Фундамент та логіка роботи з ШІ">
+            </div>
+            <div class="input-group">
+                <label>Заголовок уроку</label>
+                <input type="text" id="lesson-title" required placeholder="Урок 1. Стратегія...">
+            </div>
+            <div class="input-group">
+                <label>Опис / Буліти (Можна використовувати HTML теги, напр. &lt;li&gt;Текст&lt;/li&gt;)</label>
+                <textarea id="lesson-desc" rows="5" required placeholder="Опис уроку..."></textarea>
+            </div>
+            
+            <div class="modal-actions">
+                <button id="save-lesson-btn" class="btn btn-primary">Зберегти урок</button>
+                <button id="close-modal-btn" class="btn btn-secondary" style="width: 100%;">Скасувати</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Зміни успішно збережено!</div>
+
+    <script type="module" src="./js/admin.js"></script>
+</body>
+</html>
